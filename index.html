@@ -1,69 +1,643 @@
-<!doctype html>
-<html lang="ms"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Dashboard HEM</title>
-<style>
-.mobile-menu,#mobileNav{display:none}
-:root{--navy:#173653;--blue:#2876b8;--teal:#159a91;--bg:#f3f6fb;--ink:#233247;--muted:#65758b}
-*{box-sizing:border-box}body{margin:0;font:15px/1.55 "Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--ink)}
-header{background:linear-gradient(120deg,#142d4e,#28689c);color:white;padding:26px clamp(16px,4vw,44px)}
-h1{margin:4px 0;font-size:clamp(1.8rem,3vw,2.5rem)}header p{margin:0;color:#d9e8f7}
-nav{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}nav button{border:1px solid #7195b6;background:#ffffff18;color:white;border-radius:9px;padding:9px 12px;cursor:pointer}nav button.active,nav button:hover{background:white;color:#173653;font-weight:bold}
-main{max-width:1200px;margin:25px auto;padding:0 16px 40px}.page{display:none}.page.active{display:block}
-h2,h3{color:#173653;margin:0 0 12px}.intro{color:var(--muted);margin:0 0 16px}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:15px}
-.card{background:white;border:1px solid #e1e8f0;border-radius:15px;padding:19px;box-shadow:0 8px 24px #1836530c}
-.s3{grid-column:span 3}.s4{grid-column:span 4}.s5{grid-column:span 5}.s6{grid-column:span 6}.s7{grid-column:span 7}.s8{grid-column:span 8}.s12{grid-column:span 12}
-.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.tile{background:#f8fbff;border:1px solid #e3ebf4;border-radius:10px;padding:13px}.tile b{display:block;color:#173653}.tile span{font-size:.9rem;color:#65758b}
-ul{padding-left:20px;margin:8px 0}li{margin:6px 0}.tag{display:inline-block;background:#e7f5f3;color:#13756f;padding:4px 9px;border-radius:7px;margin:3px;font-size:.8rem;font-weight:bold}
-.note{background:#fff7e5;border-left:4px solid #efb84b;border-radius:8px;padding:13px;color:#65501c}
-table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:12px;border-bottom:1px solid #e4ebf3}th{background:#f4f8fc;color:#173653}
-.search{padding:10px;border:1px solid #cbd5e1;border-radius:9px;font:inherit}
-footer{text-align:center;color:#78879a;padding:24px;font-size:.85rem}
-@media(max-width:800px){.s3,.s4,.s5,.s6,.s7,.s8{grid-column:span 6}.tiles{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:550px){
-  header{padding:20px 15px 16px}
-  h1{font-size:1.7rem}
-  main{margin:17px auto;padding:0 12px 28px}
-  .s3,.s4,.s5,.s6,.s7,.s8,.s12{grid-column:span 12}
-  .tiles{grid-template-columns:1fr}
-  nav{display:none}
-  .mobile-menu{display:block;font-size:.82rem;font-weight:700;color:#d9e8f7;margin-top:18px;margin-bottom:6px}
-  #mobileNav{display:block;width:100%;padding:12px 13px;border-radius:11px;border:1px solid #aac4dc;background:white;color:#173653;font:inherit;font-weight:600}
-  .card{padding:15px}
-  table{min-width:440px}
-  #takwim .card{overflow-x:auto}
-}
-button,select,input{touch-action:manipulation}
-@media(max-width:550px){button{min-height:42px}p,li{overflow-wrap:anywhere}}
-</style></head><body>
-<header><div style="font-size:.78rem;letter-spacing:.12em;color:#b9d8f4;font-weight:bold">DASHBOARD PENGURUSAN SEKOLAH</div><h1>Hal Ehwal Murid (HEM)</h1><p>Kebajikan, keselamatan, sahsiah dan pembangunan murid secara menyeluruh.</p>
-<label class="mobile-menu" for="mobileNav">Menu bahagian HEM</label><select id="mobileNav" aria-label="Pilih bahagian HEM"><option value="home">Dashboard</option><option value="jawatankuasa">Jawatankuasa</option><option value="kelas">Pengurusan Kelas</option><option value="disiplin">Disiplin</option><option value="kebajikan">Bantuan & Kebajikan</option><option value="3k">3K</option><option value="bimbingan">Bimbingan & Kaunseling</option><option value="sokongan">SPBT & Sokongan</option><option value="takwim">Takwim</option><option value="dokumen">Dokumentasi</option></select><nav>
-<button class="active" data-page="home">Dashboard</button><button data-page="jawatankuasa">Jawatankuasa</button><button data-page="kelas">Pengurusan Kelas</button><button data-page="disiplin">Disiplin</button><button data-page="kebajikan">Bantuan & Kebajikan</button><button data-page="3k">3K</button><button data-page="bimbingan">Bimbingan & Kaunseling</button><button data-page="sokongan">SPBT & Sokongan</button><button data-page="takwim">Takwim</button><button data-page="dokumen">Dokumentasi</button>
-</nav></header><main>
-<section id="home" class="page active"><h2>Gambaran Keseluruhan</h2><p class="intro">Fokus utama dan bidang pelaksanaan HEM.</p><div class="grid">
-<div class="card s3"><b>♡ Kebajikan Murid</b><small>Keutamaan pengurusan</small></div><div class="card s3"><b>⌂ Selamat & Sihat</b><small>Persekitaran sekolah</small></div><div class="card s3"><b>✦ Sahsiah & Nilai</b><small>Pembangunan murid</small></div><div class="card s3"><b>◎ Bimbingan</b><small>Sokongan kesejahteraan</small></div>
-<div class="card s7"><h3>Matlamat HEM</h3><p>Membantu membentuk murid sejahtera melalui pengurusan kebajikan, disiplin, keselamatan, kesihatan, bimbingan dan sokongan. Pendekatan menekankan pendidikan, bimbingan dan pembentukan sahsiah; hukuman ialah pilihan terakhir.</p><p><span class="tag">Mendidik</span><span class="tag">Membimbing</span><span class="tag">Membentuk sahsiah</span><span class="tag">Pemulihan</span></p></div>
-<div class="card s5"><h3>Prinsip Pelaksanaan</h3><ul><li>Beretika, berhemah dan menjaga emosi murid.</li><li>Kes disiplin ditangani secara adil dan berperikemanusiaan.</li><li>Guru berperanan sebagai ibu bapa kedua.</li><li>Menjaga maruah serta kerahsiaan murid.</li></ul></div>
-<div class="card s12"><h3>Bidang Utama</h3><div class="tiles">
-<div class="tile"><b>Pengurusan HEM & Kelas</b><span>Pengurusan murid dan urusan kelas.</span></div><div class="tile"><b>Disiplin</b><span>Pembentukan tingkah laku dan pengendalian kes.</span></div><div class="tile"><b>Bantuan & Kebajikan</b><span>Bantuan, kewangan, pakaian, makanan dan takaful.</span></div><div class="tile"><b>3K</b><span>Keselamatan, kebersihan dan kesihatan.</span></div><div class="tile"><b>Bimbingan & Kaunseling</b><span>Sokongan perkembangan murid.</span></div><div class="tile"><b>Program Sokongan</b><span>SPBT, PPDa, PPDe, Guru Penyayang dan kantin.</span></div></div></div></div></section>
-<section id="jawatankuasa" class="page"><h2>Jawatankuasa HEM</h2><p class="intro">Bidang dan portfolio yang disenaraikan dalam dokumen.</p><div class="grid"><div class="card s6"><h3>Jawatankuasa / Bidang</h3><ul><li>JR16 — Pengurusan HEM</li><li>JR17 — Pengurusan Disiplin</li><li>JR18 — Pengurusan 3K</li><li>PR07 — Guru Bimbingan</li><li>PR14 — Guru Disiplin</li><li>PR15 — SPBT</li><li>PR17 / PR18 / PR19 — Portfolio sokongan</li></ul></div><div class="card s6"><h3>Portfolio pelaksanaan</h3><p>Pengurusan kelas dan kantin; PPDa dan PPDe; Amalan Guru Penyayang; bantuan dan kebajikan; kewangan; pakaian/peralatan; makanan; takaful pelajar; 3K; bimbingan dan kaunseling.</p><div class="note">Nama ahli dan pembahagian tugas khusus dirujuk pada carta organisasi serta helaian jawatankuasa dokumen asal.</div></div></div></section>
-<section id="kelas" class="page"><h2>Pengurusan Kelas</h2><p class="intro">Aspek pengurusan murid dan kelas dalam skop HEM.</p><div class="grid"><div class="card s8"><h3>Skop</h3><ul><li>Pengurusan hal ehwal murid di peringkat kelas.</li><li>Urusan pendaftaran dan pengendalian murid secara berhemah.</li><li>Menjaga kebajikan serta emosi murid.</li></ul></div><div class="card s4"><h3>Prinsip</h3><p>Beretika, prihatin, menjaga kebajikan dan menghormati maruah murid.</p></div></div></section>
-<section id="disiplin" class="page"><h2>Pengurusan Disiplin</h2><p class="intro">Pembentukan sahsiah dan pengendalian kes.</p><div class="grid"><div class="card s6"><h3>Pendekatan</h3><ul><li>Semua guru memainkan peranan sebagai guru disiplin.</li><li>Utamakan pendidikan, nasihat dan bimbingan.</li><li>Kes ditangani secara adil dan berperikemanusiaan.</li><li>Tekankan pemulihan dan pembetulan tingkah laku.</li></ul></div><div class="card s6"><h3>Nilai utama</h3><div class="tiles"><div class="tile"><b>Adil</b><span>Menangani kes secara saksama.</span></div><div class="tile"><b>Berhemah</b><span>Menjaga maruah dan emosi.</span></div><div class="tile"><b>Mendidik</b><span>Hukuman sebagai pilihan terakhir.</span></div></div></div></div></section>
-<section id="kebajikan" class="page"><h2>Bantuan & Kebajikan</h2><p class="intro">Bidang bantuan dan sokongan kesejahteraan murid.</p><div class="card"><div class="tiles"><div class="tile"><b>Bantuan & kewangan</b><span>Pengurusan bantuan dan hal kewangan murid.</span></div><div class="tile"><b>Pakaian & peralatan</b><span>Sokongan keperluan pakaian dan kelengkapan.</span></div><div class="tile"><b>Makanan</b><span>Pengurusan bantuan atau sokongan makanan.</span></div><div class="tile"><b>Skim Takaful Pelajar</b><span>Perkara berkaitan perlindungan takaful.</span></div><div class="tile"><b>Kebajikan murid</b><span>Keprihatinan terhadap keperluan murid.</span></div></div></div></section>
-<section id="3k" class="page"><h2>3K</h2><p class="intro">Keselamatan, Kebersihan dan Kesihatan.</p><div class="grid"><div class="card s4"><h3>Keselamatan</h3><p>Aspek keselamatan murid dan persekitaran sekolah.</p></div><div class="card s4"><h3>Kebersihan</h3><p>Persekitaran bersih melalui bimbingan dan amalan baik.</p></div><div class="card s4"><h3>Kesihatan</h3><p>Perhatian kepada kesihatan dan kesejahteraan murid.</p></div><div class="card s12"><div class="note">Pelaksanaan 3K mengutamakan bimbingan, kasih sayang, maruah dan kerahsiaan murid.</div></div></div></section>
-<section id="bimbingan" class="page"><h2>Bimbingan & Kaunseling</h2><p class="intro">Sokongan kepada perkembangan dan kesejahteraan murid.</p><div class="grid"><div class="card s7"><h3>Peranan</h3><p>Bimbingan dan kaunseling ialah bidang utama pengurusan murid, bersama usaha membina sahsiah serta menyokong kesejahteraan mereka.</p></div><div class="card s5"><h3>Amalan berteraskan murid</h3><ul><li>Bimbing dengan prihatin.</li><li>Hormati maruah dan kerahsiaan.</li><li>Utamakan pendekatan membina.</li></ul></div></div></section>
-<section id="sokongan" class="page"><h2>SPBT & Sokongan Murid</h2><p class="intro">Program sokongan yang dinyatakan dalam dokumen.</p><div class="card"><div class="tiles"><div class="tile"><b>SPBT</b><span>Skim Pinjaman Buku Teks.</span></div><div class="tile"><b>PPDa</b><span>Portfolio pendidikan pencegahan dadah.</span></div><div class="tile"><b>PPDe</b><span>Portfolio sokongan yang dinyatakan.</span></div><div class="tile"><b>Amalan Guru Penyayang</b><span>Amalan mesra dan prihatin.</span></div><div class="tile"><b>Kantin</b><span>Pengurusan berkaitan kantin sekolah.</span></div></div></div></section>
-<section id="takwim" class="page"><h2>Takwim HEM 2026</h2><p class="intro">Aktiviti utama diringkaskan daripada takwim. Cari dalam senarai:</p><input class="search" id="filter" placeholder="Cari aktiviti..."><div class="card" style="margin-top:14px"><table id="events"><thead><tr><th>Tempoh</th><th>Aktiviti</th></tr></thead><tbody><tr><td>Awal tahun persekolahan</td><td>Taklimat disiplin</td></tr><tr><td>Awal tahun persekolahan</td><td>Orientasi Tahun 1</td></tr><tr><td>Sepanjang tahun</td><td>Program peningkatan disiplin</td></tr><tr><td>Akhir sesi / mengikut jadual</td><td>Pemulangan buku teks</td></tr><tr><td>Akhir tahun</td><td>Pendaftaran murid bagi tahun 2027</td></tr></tbody></table></div><p class="intro" style="margin-top:12px">Ringkasan ini tidak menggantikan tarikh dan butiran penuh dalam takwim asal.</p></section>
-<section id="dokumen" class="page"><h2>Dokumentasi</h2><p class="intro">Dokumen dan rujukan pelaksanaan HEM.</p><div class="grid"><div class="card s6"><h3>Dokumen rujukan</h3><ul><li>Carta organisasi HEM.</li><li>Senarai jawatankuasa dan bidang tugas.</li><li>Takwim HEM.</li><li>Ketetapan dan panduan pengurusan HEM.</li></ul></div><div class="card s6"><h3>Nota</h3><p>Bahagian ini boleh dikembangkan dengan pautan dokumen sekolah, borang atau rekod yang diluluskan.</p><div class="note">Dashboard ini ialah ringkasan dan tidak menggantikan dokumen rasmi atau rekod pengurusan sekolah.</div></div></div></section>
-</main><footer>Dashboard HEM • Berdasarkan ringkasan dokumen HEM yang dibekalkan</footer>
+<!DOCTYPE html><html class="h-full" lang="ms"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_tab" name="shell-type"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;background-color:#F7F9FD;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "primary-container": "#1952b3", "pillar-kesihatan": "#059669", "on-background": "#101c2b", "error-container": "#ffdad6", "background": "#f8f9ff", "on-secondary-fixed-variant": "#431acb", "pillar-spbt-border": "#BAE6FD", "outline-variant": "#c3c6d4", "on-error": "#ffffff", "pillar-sahsiah-border": "#C7D2FE", "pillar-kebajikan-bg": "#FFF1F2", "on-tertiary-container": "#61e4af", "surface-variant": "#d7e3f8", "on-secondary-fixed": "#190064", "on-surface": "#101c2b", "error": "#ba1a1a", "on-tertiary-fixed-variant": "#005138", "secondary": "#593be0", "tertiary": "#004a33", "surface-card": "#FFFFFF", "secondary-container": "#7259fa", "surface-container-low": "#eff4ff", "secondary-fixed": "#e5deff", "pillar-kebajikan-border": "#FECDD3", "surface": "#f8f9ff", "primary-fixed": "#d9e2ff", "pillar-kaunseling": "#D97706", "pillar-kesihatan-border": "#A7F3D0", "on-primary-fixed-variant": "#00419c", "surface-tint": "#255abb", "surface-container-high": "#dde9fd", "surface-container-lowest": "#ffffff", "pillar-kaunseling-bg": "#FFFBEB", "surface-container-highest": "#d7e3f8", "canvas-bg": "#F7F9FD", "pillar-spbt": "#0284C7", "on-secondary": "#ffffff", "pillar-kebajikan": "#F43F5E", "tertiary-fixed-dim": "#59dda9", "on-primary": "#ffffff", "on-error-container": "#93000a", "surface-bright": "#f8f9ff", "surface-dim": "#cfdbef", "on-tertiary": "#ffffff", "inverse-surface": "#253141", "pillar-kesihatan-bg": "#ECFDF5", "pillar-kaunseling-border": "#FDE68A", "on-secondary-container": "#fffbff", "on-primary-container": "#baccff", "pillar-spbt-bg": "#F0F9FF", "primary": "#003b8e", "on-tertiary-fixed": "#002114", "outline": "#737784", "hero-gradient-start": "#0F2B59", "tertiary-container": "#006446", "on-surface-variant": "#434652", "secondary-fixed-dim": "#c8bfff", "tertiary-fixed": "#78fac3", "pillar-sahsiah": "#6366F1", "pillar-sahsiah-bg": "#EEF2FF", "inverse-primary": "#b0c6ff", "primary-fixed-dim": "#b0c6ff", "hero-gradient-end": "#1E58A3", "inverse-on-surface": "#eaf1ff", "surface-container": "#e5eeff", "on-primary-fixed": "#001945" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-xl": "2rem", "space-2xl": "3rem", "gutter": "1rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "margin": "1rem", "margin-desktop": "2.5rem", "space-lg": "1.5rem", "space-md": "1rem", "margin-tablet": "1.5rem" }, fontFamily: { "headline-lg": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "kicker-eyebrow": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "display-hero": ["Plus Jakarta Sans"] }, fontSize: { "headline-lg": ["26px", { lineHeight: "34px", letterSpacing: "-0.02em", fontWeight: "700" }], "body-sm": ["12px", { lineHeight: "18px", fontWeight: "400" }], "headline-md": ["19px", { lineHeight: "26px", letterSpacing: "-0.01em", fontWeight: "700" }], "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.04em", fontWeight: "700" }], "headline-lg-mobile": ["22px", { lineHeight: "30px", letterSpacing: "-0.02em", fontWeight: "700" }], "kicker-eyebrow": ["11px", { lineHeight: "16px", letterSpacing: "0.08em", fontWeight: "800" }], "label-md": ["13px", { lineHeight: "18px", letterSpacing: "0.01em", fontWeight: "600" }], "body-md": ["14px", { lineHeight: "21px", fontWeight: "400" }], "headline-sm": ["16px", { lineHeight: "22px", fontWeight: "600" }], "body-lg": ["16px", { lineHeight: "24px", fontWeight: "400" }], "display-hero": ["36px", { lineHeight: "44px", letterSpacing: "-0.03em", fontWeight: "800" }] } } } };</script></head><body class="bg-surface text-on-surface font-body-md text-body-md min-h-screen flex flex-col antialiased selection:bg-primary selection:text-on-primary"><header class="fixed top-0 w-full z-50 pt-safe bg-gradient-to-r from-hero-gradient-start to-hero-gradient-end text-on-primary shadow-[0_1px_8px_rgba(0,0,0,0.06)]"><div class="h-44 px-margin flex flex-col justify-between pt-space-xs pb-space-sm"><div class="flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><div class="w-11 h-11 rounded-xl bg-surface-container-lowest/15 backdrop-blur-md flex items-center justify-center p-1 shrink-0 overflow-hidden"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZci3iJVCnQQUmVV99Gt9EodOAKTSa3ugDOUkC5Ap-9JcJvwUtcUEfeR95QtM9TdGcB20nNNkPuJLPWylMWXS1MQ9-kYS4Y3Rgtwdonam2fJfy_Z7O00sC_xO4SfqipkNdTTo7F9m2AAz_7uKi0kLm-zkZbNdtOXg5UB3VxmG8NrHi7WhJ7UxsP9VpxL13ZbAW2qIMdMze5yu3nQQtX7N78AM9GLOqKRfYcL0mMXjiIZ0sKCcALbpg" alt="Logo SK Kimanis Papar" class="w-full h-full object-contain"></div><div class="flex flex-col min-w-0"><span class="font-kicker-eyebrow text-kicker-eyebrow uppercase text-primary-fixed tracking-wider truncate">SK KIMANIS PAPAR</span><h1 class="font-headline-md text-headline-md text-on-primary leading-tight truncate">Dashboard Utama</h1></div></div><div class="flex items-center gap-space-xs shrink-0"><button aria-label="Pemberitahuan" class="w-11 h-11 rounded-full bg-surface-container-lowest/10 backdrop-blur-md flex items-center justify-center text-on-primary hover:bg-surface-container-lowest/20 transition-colors relative" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2 right-2 w-2.5 h-2.5 rounded-full bg-pillar-kebajikan"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div><div class="w-full overflow-x-auto no-scrollbar py-space-xs -mx-margin px-margin"><div class="flex items-center gap-space-xs whitespace-nowrap"><a class="px-space-md py-1.5 rounded-full font-label-md text-label-md bg-surface-container-lowest text-primary shadow-sm flex items-center gap-1.5 shrink-0" data-path="dashboard-utama" href="#"><span class="material-symbols-outlined text-[16px]">space_dashboard</span><span class="">Dashboard</span></a><a class="px-space-md py-1.5 rounded-full font-label-md text-label-md bg-surface-container-lowest/15 text-on-primary hover:bg-surface-container-lowest/25 transition-colors flex items-center gap-1.5 shrink-0" data-path="carta-jawatankuasa" href="#"><span class="material-symbols-outlined text-[16px]">groups</span><span class="">Jawatankuasa</span></a><a class="px-space-md py-1.5 rounded-full font-label-md text-label-md bg-surface-container-lowest/15 text-on-primary hover:bg-surface-container-lowest/25 transition-colors flex items-center gap-1.5 shrink-0" data-path="pengurusan-kelas" href="#"><span class="material-symbols-outlined text-[16px]">meeting_room</span><span class="">Pengurusan Kelas</span></a><a class="px-space-md py-1.5 rounded-full font-label-md text-label-md bg-pillar-sahsiah-bg text-pillar-sahsiah hover:bg-pillar-sahsiah-bg/90 transition-colors flex items-center gap-1.5 shrink-0" data-path="disiplin-dan-sahsiah" href="#"><span class="material-symbols-outlined text-[16px]">gavel</span><span class="">Disiplin</span></a><a class="px-space-md py-1.5 rounded-full font-label-md text-label-md bg-pillar-kebajikan-bg text-pillar-kebajikan hover:bg-pillar-kebajikan-bg/90 transition-colors flex items-center gap-1.5 shrink-0" data-path="bantuan-dan-kebajikan" href="#"><span class="material-symbols-outlined text-[16px]">volunteer_activism</span><span class="">Bantuan &amp; Kebajikan</span></a><a class="px-space-md py-1.5 rounded-full font-label-md text-label-md bg-pillar-kesihatan-bg text-pillar-kesihatan hover:bg-pillar-kesihatan-bg/90 transition-colors flex items-center gap-1.5 shrink-0" data-path="program-3k" href="#"><span class="material-symbols-outlined text-[16px]">health_and_safety</span><span class="">3K</span></a><a class="px-space-md py-1.5 rounded-full font-label-md text-label-md bg-pillar-kaunseling-bg text-pillar-kaunseling hover:bg-pillar-kaunseling-bg/90 transition-colors flex items-center gap-1.5 shrink-0" data-path="bimbingan-dan-kaunseling" href="#"><span class="material-symbols-outlined text-[16px]">support_agent</span><span class="">Bimbingan &amp; Kaunseling</span></a><a class="px-space-md py-1.5 rounded-full font-label-md text-label-md bg-pillar-spbt-bg text-pillar-spbt hover:bg-pillar-spbt-bg/90 transition-colors flex items-center gap-1.5 shrink-0" data-path="pengurusan-spbt" href="#"><span class="material-symbols-outlined text-[16px]">auto_stories</span><span class="">SPBT</span></a><a class="px-space-md py-1.5 rounded-full font-label-md text-label-md bg-surface-container-lowest/15 text-on-primary hover:bg-surface-container-lowest/25 transition-colors flex items-center gap-1.5 shrink-0" data-path="takwim-hem" href="#"><span class="material-symbols-outlined text-[16px]">calendar_month</span><span class="">Takwim</span></a><a class="px-space-md py-1.5 rounded-full font-label-md text-label-md bg-surface-container-lowest/15 text-on-primary hover:bg-surface-container-lowest/25 transition-colors flex items-center gap-1.5 shrink-0" data-path="dokumentasi-hem" href="#"><span class="material-symbols-outlined text-[16px]">folder_open</span><span class="">Dokumentasi</span></a></div></div></div></header><main class="flex flex-col relative w-full pt-44 bg-surface min-h-[calc(100vh-5rem)] pb-24"><div class="flex flex-col w-full px-margin space-y-space-lg pb-space-2xl">
+<!-- Ceria Greeting & Quick Banner -->
+<div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary-container via-hero-gradient-end to-secondary p-space-md text-on-primary shadow-md">
+<div class="relative z-10 flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-lowest/20 backdrop-blur-md font-kicker-eyebrow text-kicker-eyebrow uppercase tracking-widest text-tertiary-fixed">
+<span class="material-symbols-outlined text-[14px]">stars</span>
+          PORTAL SEJAHTERA HEM
+        </span>
+<span class="text-label-sm font-label-sm px-2.5 py-0.5 rounded-full bg-surface-container-lowest/15 text-primary-fixed">Sesi 2026</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile font-bold tracking-tight text-on-primary pt-1">
+        Hal Ehwal Murid (HEM)
+      </h2>
+<p class="font-body-md text-body-md text-primary-fixed max-w-xs leading-snug">
+        Kebajikan, keselamatan, sahsiah dan pembangunan murid secara menyeluruh.
+      </p>
+</div>
+<!-- Ambient Graphic Circles -->
+<div class="absolute -right-6 -bottom-8 w-32 h-32 rounded-full bg-tertiary-fixed-dim/20 blur-xl pointer-events-none"></div>
+<div class="absolute right-12 -top-6 w-24 h-24 rounded-full bg-secondary-fixed/20 blur-lg pointer-events-none"></div>
+</div>
+<!-- Gambaran Keseluruhan (4 Vibrant Colored Cards) -->
+<section class="flex flex-col gap-space-sm">
+<div class="flex flex-col">
+<h3 class="font-headline-md text-headline-md text-on-surface">Gambaran Keseluruhan</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Fokus utama dan bidang pelaksanaan HEM.</p>
+</div>
+<div class="grid grid-cols-2 gap-space-sm">
+<!-- Kebajikan Murid (Vibrant Rose) -->
+<div class="flex flex-col justify-between p-space-md rounded-2xl bg-pillar-kebajikan-bg shadow-sm">
+<div class="w-10 h-10 rounded-xl bg-pillar-kebajikan text-on-primary flex items-center justify-center shadow-sm mb-space-sm">
+<span class="material-symbols-outlined text-[22px]">favorite</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm text-pillar-kebajikan block font-bold leading-tight">♡ Kebajikan Murid</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Keutamaan pengurusan</span>
+</div>
+</div>
+<!-- Selamat & Sihat (Mint / Emerald) -->
+<div class="flex flex-col justify-between p-space-md rounded-2xl bg-pillar-kesihatan-bg shadow-sm">
+<div class="w-10 h-10 rounded-xl bg-pillar-kesihatan text-on-primary flex items-center justify-center shadow-sm mb-space-sm">
+<span class="material-symbols-outlined text-[22px]">health_and_safety</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm text-pillar-kesihatan block font-bold leading-tight">⌂ Selamat &amp; Sihat</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Persekitaran sekolah</span>
+</div>
+</div>
+<!-- Sahsiah & Nilai (Electric Violet/Indigo) -->
+<div class="flex flex-col justify-between p-space-md rounded-2xl bg-pillar-sahsiah-bg shadow-sm">
+<div class="w-10 h-10 rounded-xl bg-pillar-sahsiah text-on-primary flex items-center justify-center shadow-sm mb-space-sm">
+<span class="material-symbols-outlined text-[22px]">verified_user</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm text-pillar-sahsiah block font-bold leading-tight">✦ Sahsiah &amp; Nilai</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Pembangunan murid</span>
+</div>
+</div>
+<!-- Bimbingan (Warm Amber) -->
+<div class="flex flex-col justify-between p-space-md rounded-2xl bg-pillar-kaunseling-bg shadow-sm">
+<div class="w-10 h-10 rounded-xl bg-pillar-kaunseling text-on-primary flex items-center justify-center shadow-sm mb-space-sm">
+<span class="material-symbols-outlined text-[22px]">psychology</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm text-pillar-kaunseling block font-bold leading-tight">◎ Bimbingan</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Sokongan kesejahteraan</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Matlamat HEM with Cheerful Pills -->
+<section class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-lg bg-primary-fixed text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">flag</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Matlamat HEM</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+      Membantu membentuk murid sejahtera melalui pengurusan kebajikan, disiplin, keselamatan, kesihatan, bimbingan dan sokongan. Pendekatan menekankan pendidikan, bimbingan dan pembentukan sahsiah; hukuman ialah pilihan terakhir.
+    </p>
+<!-- Visual Tags -->
+<div class="flex flex-wrap gap-2 pt-1">
+<span class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-pillar-kesihatan-bg text-pillar-kesihatan font-label-md text-label-md">
+<span class="w-2 h-2 rounded-full bg-pillar-kesihatan"></span> Mendidik
+      </span>
+<span class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-pillar-spbt-bg text-pillar-spbt font-label-md text-label-md">
+<span class="w-2 h-2 rounded-full bg-pillar-spbt"></span> Membimbing
+      </span>
+<span class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-pillar-sahsiah-bg text-pillar-sahsiah font-label-md text-label-md">
+<span class="w-2 h-2 rounded-full bg-pillar-sahsiah"></span> Membentuk sahsiah
+      </span>
+<span class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-pillar-kaunseling-bg text-pillar-kaunseling font-label-md text-label-md">
+<span class="w-2 h-2 rounded-full bg-pillar-kaunseling"></span> Pemulihan
+      </span>
+</div>
+</section>
+<!-- Prinsip Pelaksanaan -->
+<section class="p-space-md rounded-2xl bg-surface-container-low shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[24px]">task_alt</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Prinsip Pelaksanaan</h3>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-bold px-2 py-0.5 rounded-md bg-secondary-fixed">Etika HEM</span>
+</div>
+<div class="flex flex-col gap-2.5 pt-1">
+<div class="flex items-start gap-3 p-2.5 rounded-xl bg-surface-container-lowest">
+<div class="w-6 h-6 rounded-full bg-tertiary-fixed flex items-center justify-center text-tertiary shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">Beretika, berhemah dan menjaga emosi murid.</p>
+</div>
+<div class="flex items-start gap-3 p-2.5 rounded-xl bg-surface-container-lowest">
+<div class="w-6 h-6 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">Kes disiplin ditangani secara adil dan berperikemanusiaan.</p>
+</div>
+<div class="flex items-start gap-3 p-2.5 rounded-xl bg-surface-container-lowest">
+<div class="w-6 h-6 rounded-full bg-pillar-kebajikan-bg flex items-center justify-center text-pillar-kebajikan shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">Guru berperanan sebagai ibu bapa kedua.</p>
+</div>
+<div class="flex items-start gap-3 p-2.5 rounded-xl bg-surface-container-lowest">
+<div class="w-6 h-6 rounded-full bg-pillar-spbt-bg flex items-center justify-center text-pillar-spbt shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">Menjaga maruah serta kerahsiaan murid.</p>
+</div>
+</div>
+</section>
+<!-- Bidang Utama (Lively Modular Grid) -->
+<section class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Bidang Utama</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Skop pelaksanaan perkhidmatan</p>
+</div>
+<span class="material-symbols-outlined text-primary-container text-[24px]">apps</span>
+</div>
+<div class="grid grid-cols-1 gap-2.5">
+<!-- Pengurusan HEM & Kelas (Royal Blue) -->
+<div class="p-3.5 rounded-xl bg-surface-container-lowest shadow-sm flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-primary flex items-center justify-center text-on-primary shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[24px]">meeting_room</span>
+</div>
+<div class="flex flex-col min-w-0">
+<h4 class="font-headline-sm text-headline-sm text-primary font-bold">Pengurusan HEM &amp; Kelas</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Pengurusan murid dan urusan kelas.</p>
+</div>
+</div>
+<!-- Disiplin (Crimson / Coral) -->
+<div class="p-3.5 rounded-xl bg-surface-container-lowest shadow-sm flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-pillar-kebajikan flex items-center justify-center text-on-primary shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[24px]">gavel</span>
+</div>
+<div class="flex flex-col min-w-0">
+<h4 class="font-headline-sm text-headline-sm text-pillar-kebajikan font-bold">Disiplin</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Pembentukan tingkah laku dan pengendalian kes.</p>
+</div>
+</div>
+<!-- Bantuan & Kebajikan (Sunny Amber) -->
+<div class="p-3.5 rounded-xl bg-surface-container-lowest shadow-sm flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-pillar-kaunseling flex items-center justify-center text-on-primary shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[24px]">volunteer_activism</span>
+</div>
+<div class="flex flex-col min-w-0">
+<h4 class="font-headline-sm text-headline-sm text-pillar-kaunseling font-bold">Bantuan &amp; Kebajikan</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Bantuan, kewangan, pakaian, makanan dan takaful.</p>
+</div>
+</div>
+<!-- 3K (Vibrant Emerald) -->
+<div class="p-3.5 rounded-xl bg-surface-container-lowest shadow-sm flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-pillar-kesihatan flex items-center justify-center text-on-primary shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[24px]">sanitizer</span>
+</div>
+<div class="flex flex-col min-w-0">
+<h4 class="font-headline-sm text-headline-sm text-pillar-kesihatan font-bold">3K</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Keselamatan, kebersihan dan kesihatan.</p>
+</div>
+</div>
+<!-- Bimbingan & Kaunseling (Purple Violet) -->
+<div class="p-3.5 rounded-xl bg-surface-container-lowest shadow-sm flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-pillar-sahsiah flex items-center justify-center text-on-primary shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[24px]">support_agent</span>
+</div>
+<div class="flex flex-col min-w-0">
+<h4 class="font-headline-sm text-headline-sm text-pillar-sahsiah font-bold">Bimbingan &amp; Kaunseling</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Sokongan perkembangan murid.</p>
+</div>
+</div>
+<!-- Program Sokongan (Sky/Teal) -->
+<div class="p-3.5 rounded-xl bg-surface-container-lowest shadow-sm flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-pillar-spbt flex items-center justify-center text-on-primary shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[24px]">shelves</span>
+</div>
+<div class="flex flex-col min-w-0">
+<h4 class="font-headline-sm text-headline-sm text-pillar-spbt font-bold">Program Sokongan</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">SPBT, PPDa, PPDe, Guru Penyayang dan kantin.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Pengurusan Kelas Detail -->
+<section class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-primary-fixed text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">co_present</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Pengurusan Kelas</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Aspek pengurusan murid dan kelas dalam skop HEM.</p>
+</div>
+</div>
+<div class="flex flex-col gap-2 pt-1">
+<span class="font-label-md text-label-md text-primary font-bold uppercase tracking-wider">Skop</span>
+<div class="flex flex-col gap-1.5 pl-1">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">arrow_right</span>
+<p class="font-body-md text-body-md text-on-surface">Pengurusan hal ehwal murid di peringkat kelas.</p>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">arrow_right</span>
+<p class="font-body-md text-body-md text-on-surface">Urusan pendaftaran dan pengendalian murid secara berhemah.</p>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">arrow_right</span>
+<p class="font-body-md text-body-md text-on-surface">Menjaga kebajikan serta emosi murid.</p>
+</div>
+</div>
+<div class="mt-2 p-3 rounded-xl bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-md text-label-md text-on-surface font-bold">Prinsip:</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Beretika, prihatin, menjaga kebajikan dan menghormati maruah murid.</p>
+</div>
+</div>
+</section>
+<!-- Pengurusan Disiplin: Nilai Utama -->
+<section class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-pillar-kebajikan-bg text-pillar-kebajikan flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">balance</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Pengurusan Disiplin</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Pembentukan sahsiah dan pengendalian kes.</p>
+</div>
+</div>
+<!-- Pendekatan List -->
+<div class="flex flex-col gap-1.5 p-3 rounded-xl bg-surface-container-low">
+<span class="font-label-md text-label-md text-pillar-kebajikan font-bold">Pendekatan:</span>
+<div class="flex flex-col gap-1 pl-1">
+<p class="font-body-sm text-body-sm text-on-surface">• Semua guru memainkan peranan sebagai guru disiplin.</p>
+<p class="font-body-sm text-body-sm text-on-surface">• Utamakan pendidikan, nasihat dan bimbingan.</p>
+<p class="font-body-sm text-body-sm text-on-surface">• Kes ditangani secara adil dan berperikemanusiaan.</p>
+<p class="font-body-sm text-body-sm text-on-surface">• Tekankan pemulihan dan pembetulan tingkah laku.</p>
+</div>
+</div>
+<!-- 3 Nilai Utama -->
+<div class="flex flex-col gap-2 pt-1">
+<span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Nilai utama</span>
+<div class="grid grid-cols-3 gap-2">
+<div class="flex flex-col p-2.5 rounded-xl bg-pillar-sahsiah-bg text-center">
+<span class="font-label-md text-label-md font-bold text-pillar-sahsiah">Adil</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1 leading-tight">Menangani kes secara saksama.</span>
+</div>
+<div class="flex flex-col p-2.5 rounded-xl bg-pillar-kaunseling-bg text-center">
+<span class="font-label-md text-label-md font-bold text-pillar-kaunseling">Berhemah</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1 leading-tight">Menjaga maruah dan emosi.</span>
+</div>
+<div class="flex flex-col p-2.5 rounded-xl bg-pillar-kesihatan-bg text-center">
+<span class="font-label-md text-label-md font-bold text-pillar-kesihatan">Mendidik</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1 leading-tight">Hukuman pilihan terakhir.</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Bantuan & Kebajikan: 5 Cards Grid -->
+<section class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-pillar-kaunseling-bg text-pillar-kaunseling flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">redeem</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Bantuan &amp; Kebajikan</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Bidang bantuan dan sokongan kesejahteraan murid.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-2 pt-1">
+<div class="p-3 rounded-xl bg-surface-container-low flex items-center gap-3">
+<span class="material-symbols-outlined text-pillar-kaunseling">payments</span>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-bold block">Bantuan &amp; kewangan</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Pengurusan bantuan dan hal kewangan murid.</span>
+</div>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low flex items-center gap-3">
+<span class="material-symbols-outlined text-pillar-kaunseling">checkroom</span>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-bold block">Pakaian &amp; peralatan</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Sokongan keperluan pakaian dan kelengkapan.</span>
+</div>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low flex items-center gap-3">
+<span class="material-symbols-outlined text-pillar-kaunseling">restaurant</span>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-bold block">Makanan</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Pengurusan bantuan atau sokongan makanan.</span>
+</div>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low flex items-center gap-3">
+<span class="material-symbols-outlined text-pillar-kaunseling">shield</span>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-bold block">Skim Takaful Pelajar</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Perkara berkaitan perlindungan takaful.</span>
+</div>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low flex items-center gap-3">
+<span class="material-symbols-outlined text-pillar-kaunseling">sentiment_satisfied</span>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-bold block">Kebajikan murid</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Keprihatinan terhadap keperluan murid.</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 3K (Keselamatan, Kebersihan, Kesihatan) -->
+<section class="p-space-md rounded-2xl bg-pillar-kesihatan-bg shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-pillar-kesihatan text-[24px]">verified</span>
+<h3 class="font-headline-md text-headline-md text-pillar-kesihatan">3K</h3>
+</div>
+<span class="font-label-sm text-label-sm text-pillar-kesihatan font-bold px-2 py-0.5 rounded-full bg-surface-container-lowest">Program Utama</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant font-semibold">Keselamatan, Kebersihan dan Kesihatan.</p>
+<div class="grid grid-cols-1 gap-2 pt-1">
+<div class="p-3 rounded-xl bg-surface-container-lowest flex flex-col">
+<div class="flex items-center gap-1.5 text-pillar-kesihatan mb-1">
+<span class="material-symbols-outlined text-[18px]">security</span>
+<span class="font-label-md text-label-md font-bold">Keselamatan</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Aspek keselamatan murid dan persekitaran sekolah.</p>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-lowest flex flex-col">
+<div class="flex items-center gap-1.5 text-pillar-kesihatan mb-1">
+<span class="material-symbols-outlined text-[18px]">cleaning_services</span>
+<span class="font-label-md text-label-md font-bold">Kebersihan</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Persekitaran bersih melalui bimbingan dan amalan baik.</p>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-lowest flex flex-col">
+<div class="flex items-center gap-1.5 text-pillar-kesihatan mb-1">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+<span class="font-label-md text-label-md font-bold">Kesihatan</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Perhatian kepada kesihatan dan kesejahteraan murid.</p>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface font-medium pt-1 italic">
+      Pelaksanaan 3K mengutamakan bimbingan, kasih sayang, maruah dan kerahsiaan murid.
+    </p>
+</section>
+<!-- Bimbingan & Kaunseling Detail -->
+<section class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-pillar-sahsiah-bg text-pillar-sahsiah flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">record_voice_over</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Bimbingan &amp; Kaunseling</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Sokongan kepada perkembangan dan kesejahteraan murid.</p>
+</div>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-md text-label-md text-pillar-sahsiah font-bold">Peranan</span>
+<p class="font-body-sm text-body-sm text-on-surface leading-relaxed">
+        Bimbingan dan kaunseling ialah bidang utama pengurusan murid, bersama usaha membina sahsiah serta menyokong kesejahteraan mereka.
+      </p>
+</div>
+<div class="flex flex-col gap-1.5 pt-1">
+<span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Amalan berteraskan murid</span>
+<div class="flex flex-col gap-1 pl-1">
+<div class="flex items-center gap-2 text-on-surface">
+<span class="w-1.5 h-1.5 rounded-full bg-pillar-sahsiah"></span>
+<span class="font-body-md text-body-md">Bimbing dengan prihatin.</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface">
+<span class="w-1.5 h-1.5 rounded-full bg-pillar-sahsiah"></span>
+<span class="font-body-md text-body-md">Hormati maruah dan kerahsiaan.</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface">
+<span class="w-1.5 h-1.5 rounded-full bg-pillar-sahsiah"></span>
+<span class="font-body-md text-body-md">Utamakan pendekatan membina.</span>
+</div>
+</div>
+</div>
+</section>
+<!-- SPBT & Sokongan Murid -->
+<section class="p-space-md rounded-2xl bg-pillar-spbt-bg shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest text-pillar-spbt flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[20px]">local_library</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-pillar-spbt font-bold">SPBT &amp; Sokongan Murid</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Program sokongan yang dinyatakan dalam dokumen.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-2 pt-1">
+<div class="p-3 rounded-xl bg-surface-container-lowest flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface">SPBT</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Skim Pinjaman Buku Teks.</span>
+</div>
+<span class="material-symbols-outlined text-pillar-spbt text-[20px]">auto_stories</span>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-lowest flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface">PPDa</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Portfolio pendidikan pencegahan dadah.</span>
+</div>
+<span class="material-symbols-outlined text-pillar-spbt text-[20px]">verified</span>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-lowest flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface">PPDe</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Portfolio sokongan yang dinyatakan.</span>
+</div>
+<span class="material-symbols-outlined text-pillar-spbt text-[20px]">shield_with_heart</span>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-lowest flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface">Amalan Guru Penyayang</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Amalan mesra dan prihatin.</span>
+</div>
+<span class="material-symbols-outlined text-pillar-kebajikan text-[20px]">volunteer_activism</span>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-lowest flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface">Kantin</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Pengurusan berkaitan kantin sekolah.</span>
+</div>
+<span class="material-symbols-outlined text-pillar-kaunseling text-[20px]">lunch_dining</span>
+</div>
+</div>
+</section>
+<!-- Jawatankuasa HEM Portfolio Badges -->
+<section class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-secondary-fixed text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">groups</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Jawatankuasa HEM</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Bidang dan portfolio yang disenaraikan dalam dokumen.</p>
+</div>
+</div>
+<!-- Jawatankuasa / Bidang Tags -->
+<div class="flex flex-col gap-2 pt-1">
+<span class="font-label-md text-label-md text-secondary font-bold uppercase tracking-wider">Jawatankuasa / Bidang</span>
+<div class="flex flex-wrap gap-2">
+<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-primary-fixed text-primary font-label-md text-label-md font-bold">
+          JR16 <span class="font-body-sm font-normal text-on-surface">— Pengurusan HEM</span>
+</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-pillar-kebajikan-bg text-pillar-kebajikan font-label-md text-label-md font-bold">
+          JR17 <span class="font-body-sm font-normal text-on-surface">— Pengurusan Disiplin</span>
+</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-pillar-kesihatan-bg text-pillar-kesihatan font-label-md text-label-md font-bold">
+          JR18 <span class="font-body-sm font-normal text-on-surface">— Pengurusan 3K</span>
+</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-pillar-sahsiah-bg text-pillar-sahsiah font-label-md text-label-md font-bold">
+          PR07 <span class="font-body-sm font-normal text-on-surface">— Guru Bimbingan</span>
+</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-pillar-kaunseling-bg text-pillar-kaunseling font-label-md text-label-md font-bold">
+          PR14 <span class="font-body-sm font-normal text-on-surface">— Guru Disiplin</span>
+</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-pillar-spbt-bg text-pillar-spbt font-label-md text-label-md font-bold">
+          PR15 <span class="font-body-sm font-normal text-on-surface">— SPBT</span>
+</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-surface-container-high text-on-surface font-label-md text-label-md font-bold">
+          PR17 / PR18 / PR19 <span class="font-body-sm font-normal text-on-surface-variant">— Portfolio sokongan</span>
+</span>
+</div>
+</div>
+<!-- Portfolio pelaksanaan Text Box -->
+<div class="mt-2 p-3 rounded-xl bg-surface-container-low flex flex-col gap-1.5">
+<span class="font-label-md text-label-md text-on-surface font-bold">Portfolio pelaksanaan:</span>
+<p class="font-body-sm text-body-sm text-on-surface leading-relaxed">
+        Pengurusan kelas dan kantin; PPDa dan PPDe; Amalan Guru Penyayang; bantuan dan kebajikan; kewangan; pakaian/peralatan; makanan; takaful pelajar; 3K; bimbingan dan kaunseling.
+      </p>
+<p class="font-body-sm text-body-sm text-on-surface-variant italic pt-1">
+        Nama ahli dan pembahagian tugas khusus dirujuk pada carta organisasi serta helaian jawatankuasa dokumen asal.
+      </p>
+</div>
+</section>
+<!-- Takwim HEM 2026 Interactive Table / Timeline Card -->
+<section class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-primary-fixed text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">calendar_month</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Takwim HEM 2026</h3>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-bold px-2 py-0.5 rounded-full bg-surface-container-high">Jadual Ringkas</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Aktiviti utama diringkaskan daripada takwim. Cari dalam senarai:</p>
+<!-- Interactive Search / Filter Demo -->
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-[18px]">search</span>
+<input class="w-full pl-9 pr-3 py-2 rounded-xl bg-surface-container-low font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest" id="takwimSearch" placeholder="Cari aktiviti takwim..." type="text">
+</div>
+<!-- Timeline List mimicking Table -->
+<div class="flex flex-col gap-2 pt-1" id="takwimList">
+<div class="takwim-item p-3 rounded-xl bg-surface-container-low flex flex-col gap-1 transition-all">
+<div class="flex items-center justify-between">
+<span class="px-2.5 py-0.5 rounded-full bg-primary-fixed text-primary font-label-sm text-label-sm font-bold">Awal tahun persekolahan</span>
+<span class="material-symbols-outlined text-outline text-[18px]">flag</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface font-semibold pt-1">Taklimat disiplin</p>
+</div>
+<div class="takwim-item p-3 rounded-xl bg-surface-container-low flex flex-col gap-1 transition-all">
+<div class="flex items-center justify-between">
+<span class="px-2.5 py-0.5 rounded-full bg-primary-fixed text-primary font-label-sm text-label-sm font-bold">Awal tahun persekolahan</span>
+<span class="material-symbols-outlined text-outline text-[18px]">school</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface font-semibold pt-1">Orientasi Tahun 1</p>
+</div>
+<div class="takwim-item p-3 rounded-xl bg-surface-container-low flex flex-col gap-1 transition-all">
+<div class="flex items-center justify-between">
+<span class="px-2.5 py-0.5 rounded-full bg-pillar-sahsiah-bg text-pillar-sahsiah font-label-sm text-label-sm font-bold">Sepanjang tahun</span>
+<span class="material-symbols-outlined text-outline text-[18px]">sync</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface font-semibold pt-1">Program peningkatan disiplin</p>
+</div>
+<div class="takwim-item p-3 rounded-xl bg-surface-container-low flex flex-col gap-1 transition-all">
+<div class="flex items-center justify-between">
+<span class="px-2.5 py-0.5 rounded-full bg-pillar-spbt-bg text-pillar-spbt font-label-sm text-label-sm font-bold">Akhir sesi / mengikut jadual</span>
+<span class="material-symbols-outlined text-outline text-[18px]">menu_book</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface font-semibold pt-1">Pemulangan buku teks</p>
+</div>
+<div class="takwim-item p-3 rounded-xl bg-surface-container-low flex flex-col gap-1 transition-all">
+<div class="flex items-center justify-between">
+<span class="px-2.5 py-0.5 rounded-full bg-pillar-kaunseling-bg text-pillar-kaunseling font-label-sm text-label-sm font-bold">Akhir tahun</span>
+<span class="material-symbols-outlined text-outline text-[18px]">event_available</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface font-semibold pt-1">Pendaftaran murid bagi tahun 2027</p>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant italic pt-1">
+      Ringkasan ini tidak menggantikan tarikh dan butiran penuh dalam takwim asal.
+    </p>
+</section>
+<!-- Dokumentasi -->
+<section class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-pillar-kesihatan-bg text-pillar-kesihatan flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">folder_special</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Dokumentasi</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Dokumen dan rujukan pelaksanaan HEM.</p>
+</div>
+</div>
+<!-- Dokumen rujukan Buttons -->
+<div class="flex flex-col gap-2 pt-1">
+<span class="font-label-md text-label-md text-primary font-bold uppercase tracking-wider">Dokumen rujukan</span>
+<div class="grid grid-cols-1 gap-2">
+<a class="flex items-center justify-between p-3 rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors" href="#">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[20px]">account_tree</span>
+<span class="font-body-md text-body-md text-on-surface">Carta organisasi HEM.</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[18px]">open_in_new</span>
+</a>
+<a class="flex items-center justify-between p-3 rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors" href="#">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[20px]">assignment_ind</span>
+<span class="font-body-md text-body-md text-on-surface">Senarai jawatankuasa dan bidang tugas.</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[18px]">open_in_new</span>
+</a>
+<a class="flex items-center justify-between p-3 rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors" href="#">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[20px]">event_note</span>
+<span class="font-body-md text-body-md text-on-surface">Takwim HEM.</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[18px]">open_in_new</span>
+</a>
+<a class="flex items-center justify-between p-3 rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors" href="#">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[20px]">menu_book</span>
+<span class="font-body-md text-body-md text-on-surface">Ketetapan dan panduan pengurusan HEM.</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[18px]">open_in_new</span>
+</a>
+</div>
+</div>
+<!-- Nota Card -->
+<div class="p-3 rounded-xl bg-surface-container-low flex flex-col gap-1 mt-1">
+<span class="font-label-md text-label-md text-on-surface font-bold">Nota</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+        Bahagian ini boleh dikembangkan dengan pautan dokumen sekolah, borang atau rekod yang diluluskan.
+      </p>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mt-1">
+        Dashboard ini ialah ringkasan dan tidak menggantikan dokumen rasmi atau rekod pengurusan sekolah.
+      </p>
+</div>
+</section>
+<!-- Cheerful Footer Note -->
+<footer class="pt-2 text-center flex flex-col items-center gap-1">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high text-on-surface-variant text-label-sm font-label-sm">
+<span class="w-2 h-2 rounded-full bg-pillar-kesihatan"></span>
+      Dashboard HEM • Berdasarkan ringkasan dokumen HEM yang dibekalkan
+    </div>
+</footer>
+</div>
 <script>
-const nav=[...document.querySelectorAll('nav button')],sections=[...document.querySelectorAll('.page')];
-function showPage(id){
- nav.forEach(x=>x.classList.toggle('active',x.dataset.page===id));
- sections.forEach(s=>s.classList.toggle('active',s.id===id));
- const mobile=document.getElementById('mobileNav'); if(mobile) mobile.value=id;
- window.scrollTo({top:0,behavior:'smooth'});
-}
-nav.forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
-document.getElementById('mobileNav').addEventListener('change',e=>showPage(e.target.value));
-document.getElementById('filter').addEventListener('input',e=>{const q=e.target.value.toLowerCase();document.querySelectorAll('#events tbody tr').forEach(r=>r.style.display=r.innerText.toLowerCase().includes(q)?'':'none');});
-</script></body></html>
+  // Simple micro-interaction for the Takwim search filter
+  const searchInput = document.getElementById('takwimSearch');
+  const takwimItems = document.querySelectorAll('.takwim-item');
+
+  if (searchInput) {
+    searchInput.addEventListener('input', function (e) {
+      const query = e.target.value.toLowerCase().trim();
+      takwimItems.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        if (text.includes(query)) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  }
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.06)]" data-active-classes="text-primary font-bold"><div class="flex items-center justify-around h-20 px-space-xs"><a aria-current="page" class="flex flex-col items-center justify-center gap-1 w-16 h-16 transition-colors text-primary font-bold" data-path="dashboard-utama" href="#"><span class="material-symbols-outlined text-[24px]">dashboard</span><span class="font-label-sm text-label-sm">Utama</span></a><a class="flex flex-col items-center justify-center gap-1 w-16 h-16 text-on-surface-variant transition-colors" data-path="disiplin-dan-sahsiah" href="#"><span class="material-symbols-outlined text-[24px]">verified_user</span><span class="font-label-sm text-label-sm">Sahsiah</span></a><a class="flex flex-col items-center justify-center gap-1 w-16 h-16 text-on-surface-variant transition-colors" data-path="bantuan-dan-kebajikan" href="#"><span class="material-symbols-outlined text-[24px]">favorite</span><span class="font-label-sm text-label-sm">Kebajikan</span></a><a class="flex flex-col items-center justify-center gap-1 w-16 h-16 text-on-surface-variant transition-colors" data-path="takwim-hem" href="#"><span class="material-symbols-outlined text-[24px]">calendar_today</span><span class="font-label-sm text-label-sm">Takwim</span></a><a class="flex flex-col items-center justify-center gap-1 w-16 h-16 text-on-surface-variant transition-colors" data-path="profil-sekolah" href="#"><span class="material-symbols-outlined text-[24px]">badge</span><span class="font-label-sm text-label-sm">Profil</span></a></div></nav>
+
+</body></html>
