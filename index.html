@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ms"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dashboard HEM</title>
+<style>
+.mobile-menu,#mobileNav{display:none}
+:root{--navy:#173653;--blue:#2876b8;--teal:#159a91;--bg:#f3f6fb;--ink:#233247;--muted:#65758b}
+*{box-sizing:border-box}body{margin:0;font:15px/1.55 "Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--ink)}
+header{background:linear-gradient(120deg,#142d4e,#28689c);color:white;padding:26px clamp(16px,4vw,44px)}
+h1{margin:4px 0;font-size:clamp(1.8rem,3vw,2.5rem)}header p{margin:0;color:#d9e8f7}
+nav{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}nav button{border:1px solid #7195b6;background:#ffffff18;color:white;border-radius:9px;padding:9px 12px;cursor:pointer}nav button.active,nav button:hover{background:white;color:#173653;font-weight:bold}
+main{max-width:1200px;margin:25px auto;padding:0 16px 40px}.page{display:none}.page.active{display:block}
+h2,h3{color:#173653;margin:0 0 12px}.intro{color:var(--muted);margin:0 0 16px}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:15px}
+.card{background:white;border:1px solid #e1e8f0;border-radius:15px;padding:19px;box-shadow:0 8px 24px #1836530c}
+.s3{grid-column:span 3}.s4{grid-column:span 4}.s5{grid-column:span 5}.s6{grid-column:span 6}.s7{grid-column:span 7}.s8{grid-column:span 8}.s12{grid-column:span 12}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.tile{background:#f8fbff;border:1px solid #e3ebf4;border-radius:10px;padding:13px}.tile b{display:block;color:#173653}.tile span{font-size:.9rem;color:#65758b}
+ul{padding-left:20px;margin:8px 0}li{margin:6px 0}.tag{display:inline-block;background:#e7f5f3;color:#13756f;padding:4px 9px;border-radius:7px;margin:3px;font-size:.8rem;font-weight:bold}
+.note{background:#fff7e5;border-left:4px solid #efb84b;border-radius:8px;padding:13px;color:#65501c}
+table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:12px;border-bottom:1px solid #e4ebf3}th{background:#f4f8fc;color:#173653}
+.search{padding:10px;border:1px solid #cbd5e1;border-radius:9px;font:inherit}
+footer{text-align:center;color:#78879a;padding:24px;font-size:.85rem}
+@media(max-width:800px){.s3,.s4,.s5,.s6,.s7,.s8{grid-column:span 6}.tiles{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:550px){
+  header{padding:20px 15px 16px}
+  h1{font-size:1.7rem}
+  main{margin:17px auto;padding:0 12px 28px}
+  .s3,.s4,.s5,.s6,.s7,.s8,.s12{grid-column:span 12}
+  .tiles{grid-template-columns:1fr}
+  nav{display:none}
+  .mobile-menu{display:block;font-size:.82rem;font-weight:700;color:#d9e8f7;margin-top:18px;margin-bottom:6px}
+  #mobileNav{display:block;width:100%;padding:12px 13px;border-radius:11px;border:1px solid #aac4dc;background:white;color:#173653;font:inherit;font-weight:600}
+  .card{padding:15px}
+  table{min-width:440px}
+  #takwim .card{overflow-x:auto}
+}
+button,select,input{touch-action:manipulation}
+@media(max-width:550px){button{min-height:42px}p,li{overflow-wrap:anywhere}}
+</style></head><body>
+<header><div style="font-size:.78rem;letter-spacing:.12em;color:#b9d8f4;font-weight:bold">DASHBOARD PENGURUSAN SEKOLAH</div><h1>Hal Ehwal Murid (HEM)</h1><p>Kebajikan, keselamatan, sahsiah dan pembangunan murid secara menyeluruh.</p>
+<label class="mobile-menu" for="mobileNav">Menu bahagian HEM</label><select id="mobileNav" aria-label="Pilih bahagian HEM"><option value="home">Dashboard</option><option value="jawatankuasa">Jawatankuasa</option><option value="kelas">Pengurusan Kelas</option><option value="disiplin">Disiplin</option><option value="kebajikan">Bantuan & Kebajikan</option><option value="3k">3K</option><option value="bimbingan">Bimbingan & Kaunseling</option><option value="sokongan">SPBT & Sokongan</option><option value="takwim">Takwim</option><option value="dokumen">Dokumentasi</option></select><nav>
+<button class="active" data-page="home">Dashboard</button><button data-page="jawatankuasa">Jawatankuasa</button><button data-page="kelas">Pengurusan Kelas</button><button data-page="disiplin">Disiplin</button><button data-page="kebajikan">Bantuan & Kebajikan</button><button data-page="3k">3K</button><button data-page="bimbingan">Bimbingan & Kaunseling</button><button data-page="sokongan">SPBT & Sokongan</button><button data-page="takwim">Takwim</button><button data-page="dokumen">Dokumentasi</button>
+</nav></header><main>
+<section id="home" class="page active"><h2>Gambaran Keseluruhan</h2><p class="intro">Fokus utama dan bidang pelaksanaan HEM.</p><div class="grid">
+<div class="card s3"><b>♡ Kebajikan Murid</b><small>Keutamaan pengurusan</small></div><div class="card s3"><b>⌂ Selamat & Sihat</b><small>Persekitaran sekolah</small></div><div class="card s3"><b>✦ Sahsiah & Nilai</b><small>Pembangunan murid</small></div><div class="card s3"><b>◎ Bimbingan</b><small>Sokongan kesejahteraan</small></div>
+<div class="card s7"><h3>Matlamat HEM</h3><p>Membantu membentuk murid sejahtera melalui pengurusan kebajikan, disiplin, keselamatan, kesihatan, bimbingan dan sokongan. Pendekatan menekankan pendidikan, bimbingan dan pembentukan sahsiah; hukuman ialah pilihan terakhir.</p><p><span class="tag">Mendidik</span><span class="tag">Membimbing</span><span class="tag">Membentuk sahsiah</span><span class="tag">Pemulihan</span></p></div>
+<div class="card s5"><h3>Prinsip Pelaksanaan</h3><ul><li>Beretika, berhemah dan menjaga emosi murid.</li><li>Kes disiplin ditangani secara adil dan berperikemanusiaan.</li><li>Guru berperanan sebagai ibu bapa kedua.</li><li>Menjaga maruah serta kerahsiaan murid.</li></ul></div>
+<div class="card s12"><h3>Bidang Utama</h3><div class="tiles">
+<div class="tile"><b>Pengurusan HEM & Kelas</b><span>Pengurusan murid dan urusan kelas.</span></div><div class="tile"><b>Disiplin</b><span>Pembentukan tingkah laku dan pengendalian kes.</span></div><div class="tile"><b>Bantuan & Kebajikan</b><span>Bantuan, kewangan, pakaian, makanan dan takaful.</span></div><div class="tile"><b>3K</b><span>Keselamatan, kebersihan dan kesihatan.</span></div><div class="tile"><b>Bimbingan & Kaunseling</b><span>Sokongan perkembangan murid.</span></div><div class="tile"><b>Program Sokongan</b><span>SPBT, PPDa, PPDe, Guru Penyayang dan kantin.</span></div></div></div></div></section>
+<section id="jawatankuasa" class="page"><h2>Jawatankuasa HEM</h2><p class="intro">Bidang dan portfolio yang disenaraikan dalam dokumen.</p><div class="grid"><div class="card s6"><h3>Jawatankuasa / Bidang</h3><ul><li>JR16 — Pengurusan HEM</li><li>JR17 — Pengurusan Disiplin</li><li>JR18 — Pengurusan 3K</li><li>PR07 — Guru Bimbingan</li><li>PR14 — Guru Disiplin</li><li>PR15 — SPBT</li><li>PR17 / PR18 / PR19 — Portfolio sokongan</li></ul></div><div class="card s6"><h3>Portfolio pelaksanaan</h3><p>Pengurusan kelas dan kantin; PPDa dan PPDe; Amalan Guru Penyayang; bantuan dan kebajikan; kewangan; pakaian/peralatan; makanan; takaful pelajar; 3K; bimbingan dan kaunseling.</p><div class="note">Nama ahli dan pembahagian tugas khusus dirujuk pada carta organisasi serta helaian jawatankuasa dokumen asal.</div></div></div></section>
+<section id="kelas" class="page"><h2>Pengurusan Kelas</h2><p class="intro">Aspek pengurusan murid dan kelas dalam skop HEM.</p><div class="grid"><div class="card s8"><h3>Skop</h3><ul><li>Pengurusan hal ehwal murid di peringkat kelas.</li><li>Urusan pendaftaran dan pengendalian murid secara berhemah.</li><li>Menjaga kebajikan serta emosi murid.</li></ul></div><div class="card s4"><h3>Prinsip</h3><p>Beretika, prihatin, menjaga kebajikan dan menghormati maruah murid.</p></div></div></section>
+<section id="disiplin" class="page"><h2>Pengurusan Disiplin</h2><p class="intro">Pembentukan sahsiah dan pengendalian kes.</p><div class="grid"><div class="card s6"><h3>Pendekatan</h3><ul><li>Semua guru memainkan peranan sebagai guru disiplin.</li><li>Utamakan pendidikan, nasihat dan bimbingan.</li><li>Kes ditangani secara adil dan berperikemanusiaan.</li><li>Tekankan pemulihan dan pembetulan tingkah laku.</li></ul></div><div class="card s6"><h3>Nilai utama</h3><div class="tiles"><div class="tile"><b>Adil</b><span>Menangani kes secara saksama.</span></div><div class="tile"><b>Berhemah</b><span>Menjaga maruah dan emosi.</span></div><div class="tile"><b>Mendidik</b><span>Hukuman sebagai pilihan terakhir.</span></div></div></div></div></section>
+<section id="kebajikan" class="page"><h2>Bantuan & Kebajikan</h2><p class="intro">Bidang bantuan dan sokongan kesejahteraan murid.</p><div class="card"><div class="tiles"><div class="tile"><b>Bantuan & kewangan</b><span>Pengurusan bantuan dan hal kewangan murid.</span></div><div class="tile"><b>Pakaian & peralatan</b><span>Sokongan keperluan pakaian dan kelengkapan.</span></div><div class="tile"><b>Makanan</b><span>Pengurusan bantuan atau sokongan makanan.</span></div><div class="tile"><b>Skim Takaful Pelajar</b><span>Perkara berkaitan perlindungan takaful.</span></div><div class="tile"><b>Kebajikan murid</b><span>Keprihatinan terhadap keperluan murid.</span></div></div></div></section>
+<section id="3k" class="page"><h2>3K</h2><p class="intro">Keselamatan, Kebersihan dan Kesihatan.</p><div class="grid"><div class="card s4"><h3>Keselamatan</h3><p>Aspek keselamatan murid dan persekitaran sekolah.</p></div><div class="card s4"><h3>Kebersihan</h3><p>Persekitaran bersih melalui bimbingan dan amalan baik.</p></div><div class="card s4"><h3>Kesihatan</h3><p>Perhatian kepada kesihatan dan kesejahteraan murid.</p></div><div class="card s12"><div class="note">Pelaksanaan 3K mengutamakan bimbingan, kasih sayang, maruah dan kerahsiaan murid.</div></div></div></section>
+<section id="bimbingan" class="page"><h2>Bimbingan & Kaunseling</h2><p class="intro">Sokongan kepada perkembangan dan kesejahteraan murid.</p><div class="grid"><div class="card s7"><h3>Peranan</h3><p>Bimbingan dan kaunseling ialah bidang utama pengurusan murid, bersama usaha membina sahsiah serta menyokong kesejahteraan mereka.</p></div><div class="card s5"><h3>Amalan berteraskan murid</h3><ul><li>Bimbing dengan prihatin.</li><li>Hormati maruah dan kerahsiaan.</li><li>Utamakan pendekatan membina.</li></ul></div></div></section>
+<section id="sokongan" class="page"><h2>SPBT & Sokongan Murid</h2><p class="intro">Program sokongan yang dinyatakan dalam dokumen.</p><div class="card"><div class="tiles"><div class="tile"><b>SPBT</b><span>Skim Pinjaman Buku Teks.</span></div><div class="tile"><b>PPDa</b><span>Portfolio pendidikan pencegahan dadah.</span></div><div class="tile"><b>PPDe</b><span>Portfolio sokongan yang dinyatakan.</span></div><div class="tile"><b>Amalan Guru Penyayang</b><span>Amalan mesra dan prihatin.</span></div><div class="tile"><b>Kantin</b><span>Pengurusan berkaitan kantin sekolah.</span></div></div></div></section>
+<section id="takwim" class="page"><h2>Takwim HEM 2026</h2><p class="intro">Aktiviti utama diringkaskan daripada takwim. Cari dalam senarai:</p><input class="search" id="filter" placeholder="Cari aktiviti..."><div class="card" style="margin-top:14px"><table id="events"><thead><tr><th>Tempoh</th><th>Aktiviti</th></tr></thead><tbody><tr><td>Awal tahun persekolahan</td><td>Taklimat disiplin</td></tr><tr><td>Awal tahun persekolahan</td><td>Orientasi Tahun 1</td></tr><tr><td>Sepanjang tahun</td><td>Program peningkatan disiplin</td></tr><tr><td>Akhir sesi / mengikut jadual</td><td>Pemulangan buku teks</td></tr><tr><td>Akhir tahun</td><td>Pendaftaran murid bagi tahun 2027</td></tr></tbody></table></div><p class="intro" style="margin-top:12px">Ringkasan ini tidak menggantikan tarikh dan butiran penuh dalam takwim asal.</p></section>
+<section id="dokumen" class="page"><h2>Dokumentasi</h2><p class="intro">Dokumen dan rujukan pelaksanaan HEM.</p><div class="grid"><div class="card s6"><h3>Dokumen rujukan</h3><ul><li>Carta organisasi HEM.</li><li>Senarai jawatankuasa dan bidang tugas.</li><li>Takwim HEM.</li><li>Ketetapan dan panduan pengurusan HEM.</li></ul></div><div class="card s6"><h3>Nota</h3><p>Bahagian ini boleh dikembangkan dengan pautan dokumen sekolah, borang atau rekod yang diluluskan.</p><div class="note">Dashboard ini ialah ringkasan dan tidak menggantikan dokumen rasmi atau rekod pengurusan sekolah.</div></div></div></section>
+</main><footer>Dashboard HEM • Berdasarkan ringkasan dokumen HEM yang dibekalkan</footer>
+<script>
+const nav=[...document.querySelectorAll('nav button')],sections=[...document.querySelectorAll('.page')];
+function showPage(id){
+ nav.forEach(x=>x.classList.toggle('active',x.dataset.page===id));
+ sections.forEach(s=>s.classList.toggle('active',s.id===id));
+ const mobile=document.getElementById('mobileNav'); if(mobile) mobile.value=id;
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+nav.forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
+document.getElementById('mobileNav').addEventListener('change',e=>showPage(e.target.value));
+document.getElementById('filter').addEventListener('input',e=>{const q=e.target.value.toLowerCase();document.querySelectorAll('#events tbody tr').forEach(r=>r.style.display=r.innerText.toLowerCase().includes(q)?'':'none');});
+</script></body></html>
